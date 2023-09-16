@@ -27,7 +27,6 @@ function App() {
             <div key={trial.id} className="border p-4 mb-4 rounded-lg">
               <h3 className="text-lg font-semibold">{trial.title}</h3>
               <p className="text-gray-700">{trial.description}</p>
-              
             </div>
           ))}
           
