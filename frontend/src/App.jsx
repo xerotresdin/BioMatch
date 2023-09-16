@@ -36,10 +36,10 @@ function App() {
       <div className="bg-blue-500 text-white py-4 px-8">Navbar</div>
       <div className="flex flex-row h-full">
         <div className="w-1/4 p-4 bg-gray-200">
-          Left Container (2/3 of viewport)
+          Left Container (1/4 of viewport)
         </div>
         <div className="w-3/4 p-4 bg-gray-300">
-          Right Container (1/3 of viewport)
+          Right Container (3/4 of viewport)
         </div>
       </div>
     </div>
