@@ -20,7 +20,7 @@ function App() {
     <div className="container mx-auto py-10 flex flex-col items-center"> 
       <SearchBar onSearch={handleSearch} />
       <div className="mt-8"> 
-        <h2 className="text-xl font-bold text-red-500 mb-4">Clinical Trial Listings</h2> 
+        <h2 className="text-xl font-bold text-red-500 mb-4 mt-12 text-center">Clinical Trial Listings</h2> 
         <div>
           {/* Display clinical trial listings here */}
           {clinicalTrials.map((trial) => (
@@ -30,6 +30,7 @@ function App() {
               
             </div>
           ))}
+          
         </div>
       </div>
     </div>
