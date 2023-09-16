@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
+import ClinicalListing from "./components/ClinicalListing"
 import 'tailwindcss/tailwind.css';
+import axios from "axios";
 
 function App() {
+  const [fetchedTrials, setFetchedTrials] = useState([]);
   const [clinicalTrials, setClinicalTrials] = useState([]);
   const [query, setQuery] = useState('');
 
@@ -16,21 +19,27 @@ function App() {
     setClinicalTrials([]);
   };
 
+  useEffect(() => {
+    // Fetch data from the server
+    axios.get('http://localhost:3001/api/data')
+      .then(response => {
+        // Assuming response.data is an array of clinical trials
+        setFetchedTrials(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   return (
-    <div className="container mx-auto py-10 flex flex-col items-center"> 
-      <SearchBar onSearch={handleSearch} />
-      <div className="mt-8"> 
-        <h2 className="text-xl font-bold text-red-500 mb-4 mt-12 text-center">Clinical Trial Listings</h2> 
-        <div>
-          {/* Display clinical trial listings here */}
-          {clinicalTrials.map((trial) => (
-            <div key={trial.id} className="border p-4 mb-4 rounded-lg">
-              <h3 className="text-lg font-semibold">{trial.title}</h3>
-              <p className="text-gray-700">{trial.description}</p>
-              
-            </div>
-          ))}
-          
+    <div className="flex flex-col h-screen">
+      <div className="bg-blue-500 text-white py-4 px-8">Navbar</div>
+      <div className="flex flex-row h-full">
+        <div className="w-1/4 p-4 bg-gray-200">
+          Left Container (2/3 of viewport)
+        </div>
+        <div className="w-3/4 p-4 bg-gray-300">
+          Right Container (1/3 of viewport)
         </div>
       </div>
     </div>
