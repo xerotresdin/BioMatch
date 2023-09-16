@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import 'tailwindcss/tailwind.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [clinicalTrials, setClinicalTrials] = useState([]);
+  const [query, setQuery] = useState('');
+
+  // Function to handle search
+  const handleSearch = (searchQuery) => {
+    // Implement search logic here
+
+    console.log('Searching for:', searchQuery);
+    // Update clinicalTrials based on the search result
+
+    setClinicalTrials([]);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container mx-auto py-10 flex flex-col items-center"> 
+      <SearchBar onSearch={handleSearch} />
+      <div className="mt-8"> 
+        <h2 className="text-xl font-bold text-red-500 mb-4 mt-12 text-center">Clinical Trial Listings</h2> 
+        <div>
+          {/* Display clinical trial listings here */}
+          {clinicalTrials.map((trial) => (
+            <div key={trial.id} className="border p-4 mb-4 rounded-lg">
+              <h3 className="text-lg font-semibold">{trial.title}</h3>
+              <p className="text-gray-700">{trial.description}</p>
+              
+            </div>
+          ))}
+          
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

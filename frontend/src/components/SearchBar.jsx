@@ -6,18 +6,17 @@ function SearchBar({ onSearch }) {
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
     setQuery(inputValue);
-    
-    // Call  search function with input value
     onSearch(inputValue);
   };
 
   return (
-    <div>
+    <div className="flex items-center space-x-4 mt-4"> {/* Use Tailwind CSS classes */}
       <input
         type="text"
         placeholder="Search..."
         value={query}
         onChange={handleInputChange}
+        className="border border-gray-300 rounded px-3 py-2" 
       />
       {/* Display live results here */}
     </div>
