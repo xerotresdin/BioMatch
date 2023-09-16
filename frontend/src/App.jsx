@@ -32,18 +32,15 @@ function App() {
   }, []);
 
   return (
-    <div className="container mx-auto py-10 flex flex-col items-center"> 
-      <SearchBar onSearch={handleSearch} />
-      <div className="mt-8"> 
-        <h2 className="text-xl font-bold text-red-500 mb-4 mt-12 text-center">Clinical Trial Listings</h2> 
-        <ul>
-          {fetchedTrials.map((trial) => {
-            return (
-              <li key={trial.id}> <ClinicalListing trial={trial}/> </li>
-            )
-          })}
-        </ul>
-        
+    <div className="flex flex-col h-screen">
+      <div className="bg-blue-500 text-white py-4 px-8">Navbar</div>
+      <div className="flex flex-row h-full">
+        <div className="w-1/4 p-4 bg-gray-200">
+          Left Container (2/3 of viewport)
+        </div>
+        <div className="w-3/4 p-4 bg-gray-300">
+          Right Container (1/3 of viewport)
+        </div>
       </div>
     </div>
   );
