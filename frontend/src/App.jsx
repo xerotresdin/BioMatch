@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -9,7 +7,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/data');
+        const response = await fetch('http://localhost:3001/api/data');
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
@@ -23,7 +21,7 @@ function App() {
   return (
     <>
       <h1>Clinical Trials:</h1>
-      <ul>
+      <ul> 
         {data.map(item => (
           <li key={item.id}>{item.name}</li>
         ))}
