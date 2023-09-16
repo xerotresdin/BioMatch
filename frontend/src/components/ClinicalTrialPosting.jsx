@@ -1,3 +1,7 @@
-function ClinicalTrialPosting() {
-  
+function ClinicalTrialPosting(props) {
+  return (
+    <div>
+      
+    </div>
+  )
 }
