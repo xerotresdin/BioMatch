@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="bg-blue-500 text-white py-4 px-8">Navbar</div>
+      <div className="bg-blue-500 text-white py-4 px-8">Biomatch</div>
       <div className="flex flex-row h-full">
         <div className="w-1/4 p-4 bg-gray-200">
           Left Container (1/4 of viewport)
