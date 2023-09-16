@@ -39,7 +39,13 @@ function App() {
           Left Container (1/4 of viewport)
         </div>
         <div className="w-3/4 p-4 bg-gray-300">
-          Right Container (3/4 of viewport)
+          <ul>
+            {fetchedTrials.map((trial) => {
+              return (
+                <li key={trial.id}><ClinicalListing trial={trial}/></li>
+              )
+            })}
+          </ul>
         </div>
       </div>
     </div>
