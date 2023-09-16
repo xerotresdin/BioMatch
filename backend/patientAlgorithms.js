@@ -51,22 +51,16 @@ class Patient{
 
 //range compare
 function range_compare(range, target){
-    switch(range){
-        case range[0] == null && range[1] == null:
-            break;
-        case range[0] == null && range[1] != null:
-            if(target > range[1])
+    if (range[0] == null && range[1] == null){
+        return true;}
+    if(range[0] == null && range[1] != null){
+        if(target > range[1]) return false;}
+    if(range[0] != null && range[1] == null){
+        if(target < range[0]) return false;}
+    if(range[0] != null && range[1] != null){
+        if(target < range[0] || target > range[1]){
             return false;
-            break;
-        case range[0] != null && range[1] == null:
-            if(target < range[0])
-            return false;
-            break;
-        case range[0] != null && range[1] != null:
-            if(target < range[0] || target > range[1]){
-                return false;
-            }
-            break;
+        }
     }
     return true;
 }
@@ -130,7 +124,9 @@ class Institution{
     }
 
 /** for desired parameters */
-    fitness_check(){}
+    fitness_check(target){
+        
+    }
 }
 
 
@@ -143,12 +139,13 @@ function printpat(a){
 }
 
 const x = new Patient ("male", 5,["black"], ["fever", "high bp"], 3);
-const required = new Patient ("male", [3, null], ["black"], ["fever", "high bp"], 3);
+const required = new Patient ("male", [null, 5], ["black", "Mexican"], ["fever", "high bp", "hon"], [0,1]);
 const desired = new Patient(null, 3, ["black", "mexican"]);
 const a = new Institution(required, desired);
 
 // printpat(desired);
 console.log(a.basic_check(x));
+console.log(a.fitness_check(x));
 
 // console.log(x.get_income());
 // x.add_medical_history("balls");
