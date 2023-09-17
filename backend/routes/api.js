@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const ClinicalTrial = require("../models/ClinicalTrial");
+const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 router.get("/data", async (req, res) => {
   try {
@@ -31,6 +33,16 @@ router.post("/data", async (req, res) => {
     res.json({ message: "Clinical Trial saved successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+});
+
+router.post("signup", async (req, res) => {
+  const { username, email, password } = req.body;
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    res.status(201).json({ message: "User registered successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "An error occurred while registering user." });
   }
 });
 
