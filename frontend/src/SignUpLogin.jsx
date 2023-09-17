@@ -61,7 +61,7 @@ function SignUpLogin(props) {
       <div className="w-[390px] p-10 rounded-2xl shadow-2xl text-center">
       <div className="flex flex-row px-12 items-center mt-4">
       <div className="mr-2 logo-image" onClick={handleLogoClick}>
-        <img className="max-w-9 max-h-9 rounded-lg" src="../public/BioMatchLogo.jpg" alt="BioMatch Logo" />
+        <img className="max-w-9 max-h-9 rounded-lg" src="/BioMatchLogo.jpg" alt="BioMatch Logo" />
       </div>
       <div className="m-1 text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 logo-text" onClick={handleLogoClick}>
         Biomatch
