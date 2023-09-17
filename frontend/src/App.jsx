@@ -36,8 +36,8 @@ function App() {
         <div className="absolute left-0 top-1 text-3xl font-bold py-4 px-16 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
           Biomatch</div>
 
-        <button className="bg-blue-500 hover:bg-blue-400 text-white font-sans py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded m-1">
-          Sign up /Login</button></div>
+        <button className="bg-blue-500 hover:bg-blue-400 text-white text-xs font-sans py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded m-1">
+          Sign up / Login</button></div>
       <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-200" />
 
       <div className="text-4xl font-semibold font-sans bg-gray-180 text-black-900 py-6 pb-1 px-16">
@@ -50,40 +50,37 @@ function App() {
 
       <hr className="h-px bg-gray-200 border-0 dark:bg-gray-300" />
       <div className="flex flex-row h-full">
-        <div className="px-16 py-9 w-1/4 p-4 font-semibold  bg-gray-200">
-          Filter:
-          <div className="px-16 pt-5 ">Sex</div>
+        <div className="px-14 py-9 w-1/4 p-4 font-semibold bg-gray-200">
+
+          <div className="flex text-2xl">Filter:
+          </div>
+          <div className="pt-5 ">Sex</div>
           <label className="flex items-center">
-            <input type = "checkbox" class = "form-checkbox h-5 w-5 text-indigo-600"></input>
-            <span className="ml-2 text-gray-700 py-5 pr-5"> Male</span>
-            <input type = "checkbox" class = "form-checkbox h-5 w-5 text-indigo-600"></input>
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600"></input>
+            <span className="ml-2 text-gray-700 py-2 pr-5"> Male</span>
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600"></input>
             <span className="ml-2 text-gray-700"> Female</span>
           </label>
-          <div className="px-16 py-2 pb-4">Race</div>
-            <div className="flex w-1/2 items-center grid-cols-2 gap-1">
-              <div className = "w-1/2">
-                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
-                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
-                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
-                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
-                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
-              </div>
-              <div className="px-3">
-                <div className="translate-y-[-0.35em] text-gray-700"> Hispanic</div>          
-                <div className="translate-y-[-0.3em] text-gray-700"> Black</div>       
-                <div className="translate-y-[-0.2em] text-gray-700 whitespace-nowrap"> Asian/Pacific Islander</div>
-                <div className="translate-y-[-0.15em] text-gray-700 whitespace-nowrap"> Native American</div>
-                <div className="text-gray-700"> White</div>
-              </div>
+          <div className="py-12 pb-4">Race</div>
+          <div className="flex w-1/2 items-center grid-cols-2 gap-1">
+            <div className="w-1/2">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-indigo-600"></input>
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-indigo-600"></input>
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-indigo-600"></input>
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-indigo-600"></input>
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-indigo-600"></input>
+            </div>
+            <div className="px-3">
+              <div className="translate-y-[-0.35em] text-gray-700"> Hispanic</div>
+              <div className="translate-y-[-0.3em] text-gray-700"> Black</div>
+              <div className="translate-y-[-0.2em] text-gray-700 whitespace-nowrap"> Asian/Pacific Islander</div>
+              <div className="translate-y-[-0.15em] text-gray-700 whitespace-nowrap"> Native American</div>
+              <div className="text-gray-700"> White</div>
+            </div>
           </div>
         </div>
         <div className="w-3/4 p-4 bg-gray-300">
-          <ul>
-            {fetchedTrials.map((trial) => {
-              return (
-                <li key={trial.id}><ClinicalListing trial={trial} /></li>
-              )
-            })}</ul>
+
           <form>
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div class="relative">
@@ -96,6 +93,13 @@ function App() {
               bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-400 hover:to-violet-400  font-semibold border-b-4 
               border-purple-700 hover:border-blue-500 rounded">
                 search</button>
+
+              <ul>
+                {fetchedTrials.map((trial) => {
+                  return (
+                    <li key={trial.id}><ClinicalListing trial={trial} /></li>
+                  )
+                })}</ul>
 
             </div>
           </form>
