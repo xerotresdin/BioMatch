@@ -1,0 +1,9 @@
+.logo-text:hover {
+    cursor: pointer;
+    text-decoration: underline; 
+  }
+  
+  .logo-image:hover {
+    cursor: pointer;
+  }
+  
