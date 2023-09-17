@@ -12,6 +12,11 @@ function App() {
   const [fetchedTrials, setFetchedTrials] = useState([]);
   const [clinicalTrials, setClinicalTrials] = useState([]);
   const [query, setQuery] = useState('');
+  const [sliderValue, setSliderValue] = useState("");
+
+  const handleSliderChange = () => {
+
+  };
 
   // Function to handle search
   const handleSearch = (searchQuery) => {
@@ -116,8 +121,8 @@ function App() {
           <div>
             <div className = "py-2">Age:</div>
             <input type = "range" className="h-1.5 w-full bg-blue-200 rounded-lg " min = "0" max = "100" step = "1" id ="slider" value={sliderValue}
-        onChange={handleSliderChange}></input>
-            <output for="slider" class="text-xl mt-2 text-center">50</output>
+            onChange={handleSliderChange}></input>
+            <output htmlFor="slider" className="text-xl mt-2 text-center">50</output>
           </div>
         </div>
         <div className="w-3/4 p-4 bg-gray-300">
