@@ -12,13 +12,28 @@ function App(props) {
   useEffect(() => {
     // Check if there is a user logged in (you should have a way to get this information after login)
     // Assuming you have a function getCurrentUser() that returns the current user
-    const user = props.currentUser; // Replace with actual code to get the current user
+    const user = {
+      "username": "testuser123",
+      "password": "testpassword",
+      "phoneNumber": "1234567890",
+      "verified": true,
+      "sex": 1,
+      "age": 30,
+      "race": ["White", "Asian"],
+      "medicalHistory": ["Hypertension", "Diabetes"],
+      "incomeIndex": 3
+    }
+    
+    // props.currentUser; // Replace with actual code to get the current user
 
     // If there is a user logged in, set the currentUser state
 
     // Fetch data from the server, including the currentUser in the request
     axios.get('http://localhost:3001/api/data', {
-      params: {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
         user: user // Pass the user data as a parameter
       }
     })
