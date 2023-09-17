@@ -52,9 +52,9 @@ function Filter(props) {
         <div className = "w-1/2 px-12"></div>
         <div className="text-gray-700 px-2 py-1"> min</div>
         <input type ="textbox" className="w-12"></input>
-        <div className="text-gray-700 px-6 py-1"> to </div>
+        <div className="text-gray-500 px-6 py-1"> to </div>
         <div className = "w-1/2"></div>
-        <div className="text-gray-700 px-2"> max</div>
+        <div className="text-gray-700 px-2 py-1"> max</div>
         <input type ="textbox" className="w-12"></input>
       </div>
       <div>

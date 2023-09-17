@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+
     <div className="flex flex-col h-screen bg-gray-150 py-4">
       <div className="flex flex-row justify-between items-center"><div>
       <img className="ml-14 max-w-9 max-h-9 rounded-lg" src="../images/BioMatchLogo.jpg" alt="BioMatch Logo" />
@@ -51,13 +51,10 @@ function App() {
       <div className="flex flex-row h-full">
         <Filter/>
         <SearchBar clinicalTrials={clinicalTrials} />
-        
-      <Routes>
-        <Route path="/signup-login" element={<SignUpLogin />} />
-      </Routes>
+      
       </div>
     </div>
-  </BrowserRouter>
+
   );
 }
 
