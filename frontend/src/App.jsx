@@ -38,7 +38,7 @@ function App(props) {
         <div>
           <img
             className="ml-14 max-w-9 max-h-9 rounded-lg"
-            src="../images/BioMatchLogo.jpg"
+            src="../public/BioMatchLogo.jpg"
             alt="BioMatch Logo"
           />
         </div>
