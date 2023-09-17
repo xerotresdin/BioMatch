@@ -12,17 +12,7 @@ function App(props) {
   useEffect(() => {
     // Check if there is a user logged in (you should have a way to get this information after login)
     // Assuming you have a function getCurrentUser() that returns the current user
-    const user = {
-      "username": "testuser123",
-      "password": "testpassword",
-      "phoneNumber": "1234567890",
-      "verified": true,
-      "sex": 1,
-      "age": 30,
-      "race": ["White", "Asian"],
-      "medicalHistory": ["Hypertension", "Diabetes"],
-      "incomeIndex": 3
-    }
+    const user = props.currentUser;
     
     // props.currentUser; // Replace with actual code to get the current user
 
