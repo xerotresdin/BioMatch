@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const clinicalTrialSchema = new mongoose.Schema({
   name: String,
   institution: String,
+  description: String,
   compensation: Number,
   ageRange: [Number, Number, Number],
   studyRace: [String, Number],

@@ -2,8 +2,7 @@ const express = require('express');
 const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
-
-require("dotenv").config();
+const connectToDatabase = require("./config/db.js");
 
 const app = express();
 
@@ -13,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@main.ruuxroy.mongodb.net/?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
+connectToDatabase();
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
