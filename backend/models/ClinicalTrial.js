@@ -18,15 +18,28 @@ const clinicalTrialSchema = new mongoose.Schema({
     required: true
   },
   ageRange: {
-    type: [Number, Number, Number, Boolean],
+    type: {
+      min: Number,
+      max: Number,
+      significance: Number,
+      isRequired: Boolean
+    },
     required: true
   },
   patientSex: {
-    type: [String, Number, Boolean],
+    type: {
+      sex: Number,
+      significance: Number,
+      isRequired: Boolean
+    },
     required: true
   },
   studyRace: {
-    type: [String, Number, Boolean],
+    type: {
+      races: [String],
+      significance: Number,
+      isRequired: Boolean
+    },
     required: true
   },
   patientMedicalHistory: {
@@ -38,7 +51,11 @@ const clinicalTrialSchema = new mongoose.Schema({
     required: true
   },
   patientIncome: {
-    type: [Number, Number, Boolean],
+    type: {
+      incomeIndex: Number,
+      significance: Number,
+      isRequired: Boolean
+    },
     required: true
   }
 });
