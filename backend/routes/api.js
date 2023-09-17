@@ -56,14 +56,14 @@ function calculateCompatibility(user, clinicalTrials) {
 
 router.get("/data", async (req, res) => {
   try {
-    const currentUser = req.body.user;
-    console.log(currentUser);
+    const currentUser = JSON.parse(req.query.user);
     let clinicalTrials = await ClinicalTrial.find({});
     
     if (currentUser) {
       clinicalTrials = calculateCompatibility(currentUser, clinicalTrials);
     }
     
+    console.log(clinicalTrials);
     res.status(200).json(clinicalTrials);
   } catch (error) {
     res.status(500).json({ message: error.message });

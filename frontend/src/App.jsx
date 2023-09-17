@@ -29,15 +29,14 @@ function App(props) {
     // If there is a user logged in, set the currentUser state
 
     // Fetch data from the server, including the currentUser in the request
+    console.log(user);
     axios.get('http://localhost:3001/api/data', {
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: {
-        user: user // Pass the user data as a parameter
+      params: {
+        user: JSON.stringify(user)
       }
     })
       .then(response => {
+        console.log(response.data);
         setClinicalTrials(response.data);
       })
       .catch(error => {
