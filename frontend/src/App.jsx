@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Filter from './components/Filter';
-import ClinicalListing from "./components/ClinicalListing";
 import 'tailwindcss/tailwind.css';
 import axios from "axios";
-import {BrowserRouter,Routes,Route} from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function App(props) {
