@@ -3,6 +3,10 @@ const router = express.Router();
 const ClinicalTrial = require("../models/ClinicalTrial");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config({ path: path.join(__dirname, "../../.env")});
+
+const secretKey = process.env.
 
 router.get("/data", async (req, res) => {
   try {
@@ -52,7 +56,6 @@ router.post("/signup", async (req, res) => {
       password: hashedPassword,
       ...req.body
     });
-    console.log(newUser);
 
     await newUser.save();
     res.status(201).json({ message: "User registered successfully" });
@@ -61,6 +64,13 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.post("/signin")
+router.post("/signin", (req, res) => {
+  const { username, password } = req.body;
+  try {
+    
+  } catch (error) {
+
+  }
+});
 
 module.exports = router;

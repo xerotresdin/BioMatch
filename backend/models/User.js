@@ -5,12 +5,12 @@ const userSchema = new mongoose.Schema({
   password: String,
   email: String,
   verified: Boolean,
-  sex: Number,
+  sex: String,
   age: Number,
   race: [String],
   medicalHistory: [String],
   incomeIndex: Number
-});
+}); 
 
 const User = mongoose.model("User", userSchema);
 
