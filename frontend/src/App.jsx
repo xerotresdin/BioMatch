@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="flex flex-col h-screen">
       <div className="text-5xl font-bold bg-blue-900 hover:text-sky-400 text-white py-3 px-12">Biomatch</div>
-      <div className="text-1xl font-normal bg-gray-200 text-black-900 py-3 px-12">Find the perfect trial for you </div>
+      <div className="text-1xl font- bg-gray-200 text-black-900 py-3 px-12">Find the perfect trial for you </div>
       <div className="text-0.5xl font-normal bg-gray-200 text-black-900 py-3 px-12">Looking for trials? Browse the latest clinical trial openings to view & apply to the best trial for you</div>
       <div className="flex flex-row h-full">
         <div className="w-1/4 p-4 bg-gray-200">
