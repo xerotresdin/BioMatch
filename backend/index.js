@@ -18,10 +18,6 @@ app.get("/", (req, res) => {
 
 connectToDatabase();
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
-
 app.use("/api", require("./routes/api"));
 
 app.listen(PORT, () => {
