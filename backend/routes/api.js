@@ -58,7 +58,10 @@ router.get("/data", async (req, res) => {
     const currentUser = req.body.user;
     let clinicalTrials = await ClinicalTrial.find({});
 
-    clinicalTrials = calculateCompatibility(currentUser, clinicalTrials);
+    if (currentUser) {
+      clinicalTrials = calculateCompatibility(currentUser, clinicalTrials);
+    }
+    
     res.status(200).json(clinicalTrials);
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -10,21 +10,11 @@ import SignUpLogin from './components/SignUpLogin';
 
 
 function App() {
-  const [fetchedTrials, setFetchedTrials] = useState([]);
   const [clinicalTrials, setClinicalTrials] = useState([]);
-  const [query, setQuery] = useState('');
   const [sliderValue, setSliderValue] = useState("");
 
   const handleSliderChange = () => {
 
-  };
-
-  // Function to handle search
-  const handleSearch = (searchQuery) => {
-    // Implement search logic here
-    console.log('Searching for:', searchQuery);
-    // Update clinicalTrials based on the search result
-    setClinicalTrials([]);
   };
 
   useEffect(() => {
@@ -32,7 +22,7 @@ function App() {
     axios.get('http://localhost:3001/api/data')
       .then(response => {
         // Assuming response.data is an array of clinical trials
-        setFetchedTrials(response.data);
+        setClinicalTrials(response.data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -63,7 +53,7 @@ function App() {
       <hr className="h-px bg-gray-200 border-0 " />
       <div className="flex flex-row h-full">
         <Filter sliderValue={sliderValue} handleSliderChange={handleSliderChange}/>
-        <SearchBar fetchedTrials={fetchedTrials} />
+        <SearchBar clinicalTrials={clinicalTrials} />
       <Routes>
         <Route path="/signup-login" element={<SignUpLogin />} />
       </Routes>
