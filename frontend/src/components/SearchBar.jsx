@@ -21,7 +21,9 @@ function SearchBar(props) {
         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
         <div className="flex items-center">
           <input type="search" id="default-search" className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50" placeholder="Search Clinical Trials, Studies, etc..." required value={query} onChange={handleInputChange} />
-          <button type="submit" className="text-white px-8 py-2 bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-400 hover:to-violet-400 font-semibold border-b-4 border-purple-700 hover:border-blue-500 rounded">
+          <button 
+          type="submit" 
+          className="text-white px-8 py-2 bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-400 hover:to-violet-400 font-semibold border-b-4 border-purple-700 hover:border-blue-500 rounded">
             Search
           </button>
         </div>

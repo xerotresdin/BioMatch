@@ -54,6 +54,7 @@ function App() {
       <div className="flex flex-row h-full">
         <Filter sliderValue={sliderValue} handleSliderChange={handleSliderChange}/>
         <SearchBar clinicalTrials={clinicalTrials} />
+        
       <Routes>
         <Route path="/signup-login" element={<SignUpLogin />} />
       </Routes>
