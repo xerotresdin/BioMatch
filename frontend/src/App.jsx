@@ -43,7 +43,7 @@ function App(props) {
           />
         </div>
         <div className="absolute left-9 top-1 text-3xl font-bold py-4 px-16 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-          Biomatch
+          BioMatch
         </div>
         <Link to="/signup-login">
           <button className="bg-blue-500 hover:bg-blue-400 text-white text-xs font-sans py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded m-1">
