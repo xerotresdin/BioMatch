@@ -25,28 +25,29 @@ function Filter(props) {
   return (
     <div className="w-1/5 p-5 font-semibold bg-gray-200">
       <div className="flex text-2xl">Filter:</div>
-      <div className="mt-2 pt-5 ">Sex</div>
-      <label className="flex items-center">
+      <div className="mt-2 pt-5 ">Sex: </div>
+      <label className="flex flex-row mt-2">
         <input
           type="radio"
           name="gender"
           value="male"
-          className="form-radio h-5 w-5 text-indigo-600"
+          className="form-radio h-5 w-7 text-indigo-600" 
           checked={gender === "male"}
           onChange={handleGenderChange}
         />
-        <span className="mt-2 ml-2 text-gray-700 "> Male</span>
+        <span className="pb-10 ml-2 text-gray-700"> Male</span>
+        
         <input
           type="radio"
           name="gender"
           value="female"
-          className="form-radio h-5 w-5 text-indigo-600"
+          className="form-radio h-5 w-7 text-indigo-600"
           checked={gender === "female"}
           onChange={handleGenderChange}
-        />
-        <span className="ml-2 text-gray-700"> Female</span>
+        /><span className="ml-2  text-gray-700"> Female</span>
+        
       </label>
-      <div className="py-18 pb-4">Race</div>
+      <div className="py-18 pb-4">Race: </div>
       <div className="flex w-1/2 items-center grid-cols-2 gap-1">
         <div className="w-1/2">
           <input
@@ -85,10 +86,10 @@ function Filter(props) {
         </div>
       </div>
 
-      <div className="pt-4">Compensation Rate</div>
+      <div className="pt-4">Compensation Rate: </div>
       <div className="flex translate-x-[-5rem] py-3 grid-cols-3">
         <div className="w-1/2 px-10"></div>
-        <div className="text-gray-700 px-1 py-1"> min</div>
+        <div className="text-gray-700 px-3 py-1"> min</div>
         <input type="textbox" className="w-12"></input>
         <div className="text-gray-600 px-3 py-1"> to </div>
         <div className="w-1/2"></div>
