@@ -33,7 +33,7 @@ function App() {
     <BrowserRouter>
     <div className="flex flex-col h-screen bg-gray-150 py-4">
       <div className="flex flex-row justify-between items-center"><div>
-        <img className="h-auto max-w-full" src="./images/BioMatchLogo.jpg" /></div>
+        <img className="h-auto max-w-full" src="../images/BioMatchLogo.jpg" /></div>
         <div className="absolute left-0 top-1 text-3xl font-bold py-4 px-16 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
           Biomatch</div>
           <Link to="/signup-login">
