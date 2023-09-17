@@ -16,7 +16,7 @@ function SearchBar(props) {
   });
 
   return (
-    <div className="w-3/4 p-4 bg-gray-300">
+    <div className="w-3/4 p-4 bg-gray-300 overflow-y-auto">
       <form>
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
             <div className="relative">
@@ -33,9 +33,8 @@ function SearchBar(props) {
       </form>
       <ul>
         {filteredTrials.map((trial) => {
-          console.log(trial);
           return (
-            <li key={trial.id}><ClinicalListing trial={trial} /></li>
+            <li key={trial._id}><ClinicalListing trial={trial} /></li>
           )
         })}
       </ul>
