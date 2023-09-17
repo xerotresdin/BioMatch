@@ -6,10 +6,5 @@ export default defineConfig({
   plugins: [
     react(),
     WindiCSS(), // Add WindiCSS plugin
-  ],
-  build: {
-    rollupOptions: {
-      external: ['react-router-dom']
-    }
-  }
+  ]
 });
