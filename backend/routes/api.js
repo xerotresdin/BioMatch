@@ -55,7 +55,7 @@ function calculateCompatibility(user, clinicalTrials) {
 
 router.get("/data", async (req, res) => {
   try {
-    const currentUser = req.body.user;
+    const currentUser = req.query.user;
     let clinicalTrials = await ClinicalTrial.find({});
 
     if (currentUser) {
