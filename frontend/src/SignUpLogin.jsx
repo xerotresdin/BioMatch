@@ -23,8 +23,6 @@ function SignUpLogin(props) {
   }
 
   const handleLogin = (event) => {
-    console.log(loginUsername);
-    console.log(loginPassword);
     axios.post("http://localhost:3001/api/signin", {
       username: loginUsername,
       password: loginPassword
