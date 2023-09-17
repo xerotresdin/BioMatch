@@ -48,6 +48,30 @@
         <div className="flex flex-row h-full">
           <div className="px-16 py-9 w-1/4 p-4 font-semibold  bg-gray-200">
             Filter:
+            <div className="px-16 pt-5 ">Sex</div>
+          <label className="flex items-center">
+            <input type = "checkbox" class = "form-checkbox h-5 w-5 text-indigo-600"></input>
+            <span className="ml-2 text-gray-700 py-5 pr-5"> Male</span>
+            <input type = "checkbox" class = "form-checkbox h-5 w-5 text-indigo-600"></input>
+            <span className="ml-2 text-gray-700"> Female</span>
+          </label>
+          <div className="px-16 py-2 pb-4">Race</div>
+            <div className="flex w-1/2 items-center grid grid-cols-2 gap-1">
+              <div className = "w-1/2">
+                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
+                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
+                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
+                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
+                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-indigo-600"></input>
+              </div>
+              <div className="px-3">
+                <div className="translate-y-[-0.35em] text-gray-700"> Hispanic</div>          
+                <div className="translate-y-[-0.3em] text-gray-700"> Black</div>       
+                <div className="translate-y-[-0.2em] text-gray-700 whitespace-nowrap"> Asian/Pacific Islander</div>
+                <div className="translate-y-[-0.15em] text-gray-700 whitespace-nowrap"> Native American</div>
+                <div className="text-gray-700"> White</div>
+              </div>
+          </div>
           </div>
           <div className="w-3/4 p-4 bg-gray-300">
             <ul>
