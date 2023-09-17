@@ -5,6 +5,7 @@ const ClinicalTrial = require("../models/ClinicalTrial");
 router.get("/data", async (req, res) => {
   try {
     const clinicalTrials = await ClinicalTrial.find({});
+    console.log(clinicalTrials);
     res.json(clinicalTrials);
   } catch (error) {
     res.status(500).json({ message: error.message });
