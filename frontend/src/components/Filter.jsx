@@ -49,10 +49,11 @@ function Filter(props) {
 
       <div className="pt-4">Compensation Rate</div>
       <div className="flex translate-x-[-5rem] py-3 grid-cols-3">   
-        <div className = "w-1/2"></div>
-        <div className="text-gray-700 px-2"> min</div>
+        <div className = "w-1/2 px-12"></div>
+        <div className="text-gray-700 px-2 py-1"> min</div>
         <input type ="textbox" className="w-12"></input>
-        <div className = "w-1/3"></div>
+        <div className="text-gray-700 px-6 py-1"> to </div>
+        <div className = "w-1/2"></div>
         <div className="text-gray-700 px-2"> max</div>
         <input type ="textbox" className="w-12"></input>
       </div>

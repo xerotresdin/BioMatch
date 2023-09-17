@@ -11,11 +11,7 @@ import SignUpLogin from './components/SignUpLogin';
 
 function App() {
   const [clinicalTrials, setClinicalTrials] = useState([]);
-  const [sliderValue, setSliderValue] = useState("");
 
-  const handleSliderChange = () => {
-
-  };
 
   useEffect(() => {
     // Fetch data from the server
@@ -53,7 +49,7 @@ function App() {
 
       <hr className="h-px bg-gray-200 border-0 " />
       <div className="flex flex-row h-full">
-        <Filter sliderValue={sliderValue} handleSliderChange={handleSliderChange}/>
+        <Filter/>
         <SearchBar clinicalTrials={clinicalTrials} />
         
       <Routes>
