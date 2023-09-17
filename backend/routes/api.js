@@ -7,6 +7,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config({ path: path.join(__dirname, "/../../.env")});
 
+router.use(express.json());
+
 const secretKey = process.env.JWT_SECRET_KEY;
 
 function calculateCompatibility(user, clinicalTrials) {
@@ -55,9 +57,10 @@ function calculateCompatibility(user, clinicalTrials) {
 router.get("/data", async (req, res) => {
   try {
     const currentUser = req.body.user;
+    console.log(currentUser);
     let clinicalTrials = await ClinicalTrial.find({});
     
-    if (true) {
+    if (currentUser) {
       clinicalTrials = calculateCompatibility(currentUser, clinicalTrials);
     }
     
