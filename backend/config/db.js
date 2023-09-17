@@ -5,7 +5,7 @@ const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env
 
 const connectToDatabase = async () => {
   try {
-    const connection = await mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log(`Connected to MongoDB!`);
   } catch (error) {
     console.error(`Error connecting to MongoDB: ${error.message}`);
