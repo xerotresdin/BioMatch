@@ -33,6 +33,7 @@ function SearchBar(props) {
       </form>
       <ul>
         {filteredTrials.map((trial) => {
+          console.log(trial);
           return (
             <li key={trial.id}><ClinicalListing trial={trial} /></li>
           )
