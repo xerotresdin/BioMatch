@@ -1,29 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import Filter from './components/Filter';
-import ClinicalListing from "./components/ClinicalListing";
 import 'tailwindcss/tailwind.css';
 import axios from "axios";
-import {BrowserRouter,Routes,Route} from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
-
-function App() {
+function App(props) {
   const [clinicalTrials, setClinicalTrials] = useState([]);
 
 
   useEffect(() => {
-    // Fetch data from the server
-    axios.get('http://localhost:3001/api/data')
+    // Check if there is a user logged in (you should have a way to get this information after login)
+    // Assuming you have a function getCurrentUser() that returns the current user
+    const user = props.currentUser; // Replace with actual code to get the current user
+
+    // If there is a user logged in, set the currentUser state
+
+    // Fetch data from the server, including the currentUser in the request
+    axios.get('http://localhost:3001/api/data', {
+      params: {
+        user: user // Pass the user data as a parameter
+      }
+    })
       .then(response => {
-        // Assuming response.data is an array of clinical trials
         setClinicalTrials(response.data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  }, [props.currentUser]);
 
   return (
 

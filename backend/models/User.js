@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   phoneNumber: String, // This field is optional and not required
   verified: Boolean,
   sex: {
-    type: String,
+    type: Number,
     required: true
   },
   age: {
