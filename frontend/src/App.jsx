@@ -58,7 +58,7 @@ function App(props) {
       </div>
 
       <div className="fonts-sans text-black text-opacity-60 py-1 pb-12 px-16">
-        Looking for trials? Browse through the latest clinical trials to find
+        Looking for trials? Browse through the latest clinical postings to find
         and apply for the one that best suits you!
       </div>
 
