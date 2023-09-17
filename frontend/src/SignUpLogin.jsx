@@ -23,14 +23,19 @@ function SignUpLogin() {
     }
   };
 
+  const handleLogoClick = () => {
+    // Redirect to the main page (replace with the actual URL)
+    window.location.href = '/';
+  };
+
 
   return (
     <div className="flex flex-row justify-center items-center h-screen">
       <div className="w-[390px] p-10 rounded-2xl shadow-2xl text-center">
-        <div className="flex flex-row px-12 items-center mt-4"><div className="mr-2">
+        <div className="flex flex-row px-12 items-center mt-4"><div className="mr-2" onClick={handleLogoClick} >
           <img className="max-w-9 max-h-9 rounded-lg" src="../images/BioMatchLogo.jpg" alt="BioMatch Logo" />
         </div>
-          <div className="m-1 text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+          <div className="m-1 text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500" onClick={handleLogoClick}>
             Biomatch</div>
         </div>
         <div className="relative mt-5">
