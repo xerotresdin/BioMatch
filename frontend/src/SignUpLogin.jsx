@@ -1,33 +1,54 @@
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import './SignUpLogin.css';
 import 'tailwindcss/tailwind.css';
 
-function SignUpLogin() {
-  const [loginFormData, setLoginFormData] = useState({});
+function SignUpLogin(props) {
+  const navigate = useNavigate();
+
+  const [loginUsername, setLoginUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   const [isLoginForm, setIsLoginForm] = useState(true);
 
   const toggleForm = () => {
     setIsLoginForm(!isLoginForm);
   };
 
-  const handleLoginInputChange = (e) => {
-    const { name, password } = e.target;
-    setLoginFormData({
-      name: name,
-      password: password,
-    });
+  const handleLoginUsernameChange = (event) => {
+    setLoginUsername(event.target.value);
+  }
+  const handleLoginPasswordChange = (event) => {
+    setLoginPassword(event.target.value);
   }
 
   const handleLogin = (event) => {
-    console.log(event.target.value);
-  }
+    console.log(loginUsername);
+    console.log(loginPassword);
+    axios.post("http://localhost:3001/api/signin", {
+      username: loginUsername,
+      password: loginPassword
+    }, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+   
+    })
+    .then((response) => {
+      props.setCurrentUser(response.data.foundUser);
+      navigate("/");
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isLoginForm) {
-      console.log('Login form submitted:', formData);
+      console.log('Login form submitted');
     } else {
-      console.log('Signup form submitted:', formData);
+      console.log('Signup form submitted:');
     }
   };
 
@@ -57,10 +78,10 @@ function SignUpLogin() {
 
         <form className={isLoginForm ? '' : 'hidden'} onSubmit={handleSubmit}>
           <div className="field mt-10">
-            <input type="text" placeholder="Username" required className="w-full p-4 border border-gray-300 rounded-lg" />
+            <input type="text" placeholder="Username" required value={loginUsername} className="w-full p-4 border border-gray-300 rounded-lg" onChange={handleLoginUsernameChange}/>
           </div>
           <div className="field mt-5">
-            <input type="password" placeholder="Password" required className="w-full p-4 border border-gray-300 rounded-lg" />
+            <input type="password" placeholder="Password" required value={loginPassword} className="w-full p-4 border border-gray-300 rounded-lg" onChange={handleLoginPasswordChange}/>
           </div>
           <div className="pass-link text-center mt-5">
             <a href="#" className="text-blue-500">
@@ -76,7 +97,7 @@ function SignUpLogin() {
                 Login
               </a>
             </div>
-            <input type="submit" value="Login" className="z-10 w-full h-full p-4 text-white bg-transparent border-none rounded-lg cursor-pointer" />
+            <input type="submit" className="z-10 w-full h-full p-4 text-white bg-transparent border-none rounded-lg cursor-pointer" />
           </div>
           <div className="signup-link text-center mt-5">
 

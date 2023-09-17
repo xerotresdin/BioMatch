@@ -86,7 +86,7 @@ router.post("/data", async (req, res) => {
 });
 
 router.post("/signup", async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, password } = req.body;
   try {
     const foundUser = await User.findOne({ username });
 
@@ -123,7 +123,7 @@ router.post("/signin", async (req, res) => {
 
     if (validPassword) {
       const token = jwt.sign({ username: foundUser.username }, secretKey, { expiresIn: '1h' });
-      res.json({ token });
+      res.status(200).json({ token, foundUser });
     } else {
       res.status(401).json({ message: "Invalid password. "});
     }
