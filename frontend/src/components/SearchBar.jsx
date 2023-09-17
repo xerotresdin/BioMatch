@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ClinicalListing from './ClinicalListing';
 
 function SearchBar(props) {
   const [query, setQuery] = useState('');
@@ -20,15 +21,14 @@ function SearchBar(props) {
                 search</button>
 
               <ul>
-                {fetchedTrials.map((trial) => {
+                {props.fetchedTrials.map((trial) => {
                   return (
                     <li key={trial.id}><ClinicalListing trial={trial} /></li>
                   )
                 })}</ul>
-
             </div>
           </form>
-        </div>
+    </div>
   );
 }
 
