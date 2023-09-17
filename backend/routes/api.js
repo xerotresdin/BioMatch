@@ -56,12 +56,9 @@ function calculateCompatibility(user, clinicalTrials) {
 router.get("/data", async (req, res) => {
   try {
     const currentUser = req.body.user;
-    console.log(currentUser);
     let clinicalTrials = await ClinicalTrial.find({});
-    console.log(clinicalTrials);
 
     clinicalTrials = calculateCompatibility(currentUser, clinicalTrials);
-    console.log(clinicalTrials);
     res.status(200).json(clinicalTrials);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -70,21 +67,15 @@ router.get("/data", async (req, res) => {
 
 router.post("/data", async (req, res) => {
   try {
-    const { name, institution, description, compensation, ageRange, patientSex, studyRace, patientMedicalHistory, patientIncome } = req.body;
-    const clinicalTrial = new ClinicalTrial({
-      name,
-      institution,
-      description,
-      compensation,
-      ageRange,
-      studyRace,
-      patientMedicalHistory,
-      patientIncome
-    });
+    const clinicalTrialsArray = req.body;
+    for (trial of clinicalTrialsArray) {
+      const clinicalTrial = new ClinicalTrial({
+        ...trial
+      });
+      await clinicalTrial.save();
+    }
 
-    await clinicalTrial.save();
-
-    res.json({ message: "Clinical Trial saved successfully" });
+    res.json({ message: "Clinical Trials saved successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
