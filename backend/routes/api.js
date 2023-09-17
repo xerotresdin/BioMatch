@@ -12,7 +12,7 @@ const secretKey = process.env.JWT_SECRET_KEY;
 function calculateCompatibility(user, clinicalTrials) {
   const age = user.age;
   const sex = user.sex;
-  const race = user.sex;
+  const race = user.race;
   const medicalHistory = user.medicalHistory;
   const incomeIndex = user.incomeIndex;
 
@@ -21,18 +21,17 @@ function calculateCompatibility(user, clinicalTrials) {
   for (const trial of clinicalTrials) {
     let score = 0;
 
-    if (age >= trial.ageRange[0] && age <= trial.ageRange[1]) {
-      score += trial.ageRange[2];
+    if (age >= trial.ageRange.min && age <= trial.ageRange.max) {
+      score += trial.ageRange.significance;
     }
 
-    if (trial.patientSex[0] === "M" && sex === 1) {
-      score += trial.patientSex[1];
-    } else if (trial.patientSex[0] === "F" && sex === 2) {
-      score += trial.patientSex[1];
-    }
+    if (trial.patientSex.sex === sex) {
+      score += trial.patientSex.significance;
+    } 
 
-    if (trial.studyRace.includes(race[0])) {
-      score += trial.studyRace[1];
+    const commonRace = trial.studyRace.races.some(tRace => race.includes(tRace));
+    if (commonRace) {
+      score += trial.studyRace.significance;
     }
 
     for (const condition of trial.patientMedicalHistory) {
@@ -41,13 +40,13 @@ function calculateCompatibility(user, clinicalTrials) {
       }
     }
 
-    if (incomeIndex >= trial.patientIncome[0] && incomeIndex <= trial.patientIncome[1]) {
-      score += trial.patientIncome[2];
+    if (incomeIndex >= trial.patientIncome.incomeIndex && incomeIndex <= trial.patientIncome.incomeIndex) {
+      score += trial.patientIncome.significance;
     }
 
     trialScores.push({ trialName: trial.name, score, details: trial });
   }
-
+  
   trialScores.sort((a, b) => b.score - a.score);
   
   return trialScores;
@@ -55,10 +54,10 @@ function calculateCompatibility(user, clinicalTrials) {
 
 router.get("/data", async (req, res) => {
   try {
-    const currentUser = req.query.user;
+    const currentUser = req.body.user;
     let clinicalTrials = await ClinicalTrial.find({});
-
-    if (currentUser) {
+    
+    if (true) {
       clinicalTrials = calculateCompatibility(currentUser, clinicalTrials);
     }
     
