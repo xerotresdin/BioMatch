@@ -1,4 +1,24 @@
+import React, { useState } from 'react';
 function Filter(props) {
+  const [ageSliderValue, setAgeSliderValue] = useState(50); // Initial age slider value
+  const [incomeSliderValue, setIncomeSliderValue] = useState(0); // Initial income slider value
+
+  const handleAgeSliderChange = (event) => {
+    const newValue = parseInt(event.target.value, 10);
+    setAgeSliderValue(newValue);
+  };
+
+
+  const handleIncomeSliderChange = (event) => {
+    const newValue = parseInt(event.target.value, 10);
+
+    // Step size increases with income (as the slider value increases)
+    const step = newValue <= 1000000 ? 100 : 1000;  
+  
+    setIncomeSliderValue(newValue);
+    event.target.step = step;  // Update the step dynamically
+  };
+
   return (
     <div className="px-14 py-9 w-1/4 p-4 font-semibold bg-gray-200">
       <div className="flex text-2xl">Filter:</div>
@@ -37,10 +57,35 @@ function Filter(props) {
         <input type ="textbox" className="w-12"></input>
       </div>
       <div>
-        <div className = "py-2">Age:</div>
-        <input type = "range" className="h-1.5 w-full bg-blue-200 rounded-lg " min = "0" max = "100" step = "1" id ="slider" value={props.sliderValue}
-        onChange={props.handleSliderChange}></input>
-        <output htmlFor="slider" className="text-xl mt-2 text-center">50</output>
+        <div className="py-2">Age:</div>
+        <input type="range"
+            className="h-1.5 w-full bg-blue-200 rounded-lg"
+            min="0"
+            max="100"
+            step="1"
+            id="ageSlider"  
+            value={ageSliderValue}
+            onChange={handleAgeSliderChange}
+          />
+          <output htmlFor="ageSlider" className="text-xl mt-2 text-center">
+            {ageSliderValue}
+          </output>
+
+
+        <div className="py-2">Average Income:</div>
+        <input
+            type="range"
+            className="h-1.5 w-full bg-blue-200 rounded-lg"
+            min="0"
+            max="100000"
+            step="100"
+            id="incomeSlider"  
+            value={incomeSliderValue}
+            onChange={handleIncomeSliderChange}
+          />
+          <output htmlFor="incomeSlider" className="text-xl mt-2 text-center">
+            {incomeSliderValue.toLocaleString()}/year
+          </output>
       </div>
   </div>
   )
