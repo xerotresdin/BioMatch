@@ -19,7 +19,6 @@ function App(props) {
     // If there is a user logged in, set the currentUser state
 
     // Fetch data from the server, including the currentUser in the request
-    console.log(user);
     axios.get('http://localhost:3001/api/data', {
       params: {
         user: JSON.stringify(user)
@@ -44,7 +43,7 @@ function App(props) {
           Biomatch</div>
           <Link to="/signup-login">
           <button className="bg-blue-500 hover:bg-blue-400 text-white text-xs font-sans py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded m-1">
-          Sign up / Login
+          {props.currentUser === null ? "Sign up / Login": `Welcome back ${props.currentUser.username}`}
         </button>
         </Link>
       </div>
