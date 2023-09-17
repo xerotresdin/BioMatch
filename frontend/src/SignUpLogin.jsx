@@ -3,17 +3,24 @@ import './SignUpLogin.css';
 import 'tailwindcss/tailwind.css';
 
 function SignUpLogin() {
-
+  const [loginFormData, setLoginFormData] = useState({});
   const [isLoginForm, setIsLoginForm] = useState(true);
 
   const toggleForm = () => {
     setIsLoginForm(!isLoginForm);
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const handleLoginInputChange = (e) => {
+    const { name, password } = e.target;
+    setLoginFormData({
+      name: name,
+      password: password,
+    });
+  }
+
+  const handleLogin = (event) => {
+    console.log(event.target.value);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,7 +57,7 @@ function SignUpLogin() {
 
         <form className={isLoginForm ? '' : 'hidden'} onSubmit={handleSubmit}>
           <div className="field mt-10">
-            <input type="text" placeholder="Email Address" required className="w-full p-4 border border-gray-300 rounded-lg" />
+            <input type="text" placeholder="Username" required className="w-full p-4 border border-gray-300 rounded-lg" />
           </div>
           <div className="field mt-5">
             <input type="password" placeholder="Password" required className="w-full p-4 border border-gray-300 rounded-lg" />
@@ -65,7 +72,7 @@ function SignUpLogin() {
           <div className="field btn relative mt-5">
             <div className="btn-layer absolute top-0 left-0 w-full p-4 bg-gradient-to-r from-blue-500 to-indigo-500 border border-blue-700 rounded-lg 
               transition-all duration-300">
-              <a href="#" onClick={toggleForm} className="font-semibold text-2xl text-white">
+              <a href="#" onClick={handleLogin} className="font-semibold text-2xl text-white">
                 Login
               </a>
             </div>
@@ -99,8 +106,8 @@ function SignUpLogin() {
 
             <div className="btn-layer absolute top-0 left-0 w-full p-4 bg-gradient-to-r from-blue-500 to-indigo-500 border border-blue-700 rounded-lg 
               transition-all duration-300">
-              <a href="#" onClick={toggleForm} className="font-semibold text-2xl text-white">
-                Login
+              <a href="#" className="font-semibold text-2xl text-white">
+                Sign Up
               </a>
             </div>
           </div>

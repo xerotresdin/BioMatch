@@ -63,7 +63,6 @@ router.get("/data", async (req, res) => {
       clinicalTrials = calculateCompatibility(currentUser, clinicalTrials);
     }
     
-    console.log(clinicalTrials);
     res.status(200).json(clinicalTrials);
   } catch (error) {
     res.status(500).json({ message: error.message });
