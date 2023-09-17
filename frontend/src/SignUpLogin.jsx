@@ -2,10 +2,27 @@ import React, { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
 
 function SignUpLogin() {
+
   const [isLoginForm, setIsLoginForm] = useState(true);
+
   const toggleForm = () => {
     setIsLoginForm(!isLoginForm);
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isLoginForm) {
+      console.log('Login form submitted:', formData);
+    } else {
+      console.log('Signup form submitted:', formData);
+    }
+  };
+
 
   return (
     <div className="flex flex-row justify-center items-center h-screen">
@@ -23,12 +40,26 @@ function SignUpLogin() {
         </div>
 
 
-        <form className={isLoginForm ? '' : 'hidden'} action="#">
+        <form className={isLoginForm ? '' : 'hidden'} onSubmit={handleSubmit}>
           <div className="field mt-10">
-            <input type="text" placeholder="Email Address" required className="w-full p-4 border border-gray-300 rounded-lg" />
-          </div>
-          <div className="field mt-5">
-            <input type="password" placeholder="Password" required className="w-full p-4 border border-gray-300 rounded-lg" />
+          <input
+            type="text"
+            placeholder="Email Address"
+            required
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="w-full p-4 border border-gray-300 rounded-lg"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            required
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            className="w-full p-4 border border-gray-300 rounded-lg"
+          />
           </div>
           <div className="pass-link text-center mt-5">
             <a href="#" className="text-blue-500">
@@ -52,17 +83,29 @@ function SignUpLogin() {
 
               Sign up now</a>
           </div>
-
-
         </form>
-
-
-        <form className={isLoginForm ? 'hidden' : ''} action="#">
+        
+        <form className={isLoginForm ? 'hidden' : ''} onSubmit={handleSubmit}>
           <div className="field mt-5">
-            <input type="text" placeholder="Name" required className="w-full p-4 border border-gray-300 rounded-lg" />
-          </div>
-          <div className="field mt-5">
-            <input type="text" placeholder="Email Address" required className="w-full p-4 border border-gray-300 rounded-lg" />
+          <input
+            type="text"
+            placeholder="Name"
+            required
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            className="w-full p-4 border border-gray-300 rounded-lg"
+          />
+          <input
+            type="text"
+            placeholder="Email Address"
+            required
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="w-full p-4 border border-gray-300 rounded-lg"
+          />
+
           </div>
           <div className="field mt-5">
             <input type="password" placeholder="Password" required className="w-full p-4 border border-gray-300 rounded-lg" />
