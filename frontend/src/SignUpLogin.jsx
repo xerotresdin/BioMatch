@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import './SignUpLogin.css';
 import 'tailwindcss/tailwind.css';
 
-const baseUrl = process.env.API_KEY;
 
 function SignUpLogin(props) {
   const navigate = useNavigate();
@@ -25,7 +24,7 @@ function SignUpLogin(props) {
   }
 
   const handleLogin = (event) => {
-    axios.post(`${baseUrl}/api/signin`, {
+    axios.post(`https://bio-match.onrender.com/api/signin`, {
       username: loginUsername,
       password: loginPassword
     }, {
